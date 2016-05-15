@@ -18,7 +18,7 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/remoteFoster?createDatabaseIfNotExist=true" />
+			value="jdbc:mysql://localhost:3306/remoteFoster" />
 		<property name="username" value="root" />
 		<property name="password" value="mysql" />
 	</bean>
@@ -42,12 +42,11 @@
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>
 		</property>
-		<property name="packagesToScan" value="mum.edu.foster.controller.domain" />
+		<property name="packagesToScan" value="mum.edu.foster.domain" />
 
 	</bean>
 
 
-	<tx:annotation-driven transaction-manager="transactionManager" />
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 		<property name="dataSource" ref="dataSource" />
