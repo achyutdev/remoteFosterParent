@@ -2,8 +2,11 @@ package mum.edu.foster.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import mum.edu.foster.domain.SupportNeed;
 
+@Service
 public interface SupportNeedService {
 
 	public void delete(SupportNeed supportNeed);

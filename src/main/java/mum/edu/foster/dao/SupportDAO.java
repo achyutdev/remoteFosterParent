@@ -10,7 +10,7 @@ import mum.edu.foster.domain.Support;
 @Repository
 public interface SupportDAO extends JpaRepository<Support, Long>{
 	
-	public List<Support> findAll();
+	//public List<Support> findAll();
 	
 	public List<Support> findByCategory();
 

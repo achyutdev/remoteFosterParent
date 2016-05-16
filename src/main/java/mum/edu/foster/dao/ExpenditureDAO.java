@@ -10,7 +10,7 @@ import mum.edu.foster.domain.Expenditure;
 @Repository
 public interface ExpenditureDAO extends JpaRepository<Expenditure, Long> {
 
-	public List<Expenditure> findAll();
+	//public List<Expenditure> findAll();
 
 	public List<Expenditure> findByCategory();
 }

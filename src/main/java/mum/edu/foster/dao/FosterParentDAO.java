@@ -10,7 +10,7 @@ import mum.edu.foster.domain.Person;
 @Repository
 public interface FosterParentDAO extends JpaRepository<Person, Long> {
 
-	public List<Person> findAll();
+	//public List<Person> findAll();
 
 	
 }
