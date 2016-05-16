@@ -16,8 +16,7 @@
 		<div class="row">
 			<div class="col-md-7">
 				<div class="jumbotron">
-					<img class="img-responsive"
-						src="<c:url value='/resources/images/home.jpg'/>" alt="Child">
+					<img class="img-responsive" src="<c:url value='/resources/images/home.jpg'/>" alt="Child">
 				</div>
 			</div>
 			<div class="col-md-5">
@@ -26,13 +25,6 @@
 					<span class="glyphicon glyphicon-log-in"></span> Login
 				</h2>
 				<hr />
-
-				<c:if test="${not empty error}">
-					<div class="error">${error}</div>
-				</c:if>
-				<c:if test="${not empty msg}">
-					<div class="msg">${msg}</div>
-				</c:if>
 
 				<form class="form-horizontal" role="form" method="post"
 					action="<c:url value='j_spring_security_check' />">
@@ -61,8 +53,7 @@
 							<button type="reset" class="btn btn-info">Reset</button>
 						</div>
 					</div>
-					
-						
+					<div style="color:red">${error}</div>
 				</form>
 
 				<div class="text-right">
@@ -76,6 +67,7 @@
 
 
 	<%@ include file="../views/common/linkToJs.jsp"%>
+	<%@ include file="../views/common/footer.jsp"%>
 
 </body>
 </html>
