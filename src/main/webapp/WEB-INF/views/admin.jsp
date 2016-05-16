@@ -59,15 +59,16 @@ body {
 					role="dialog" aria-labelledby="myLargeModalLabel">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
-							<form class="form-horizontal" role="form">
-								<form class="form-horizontal" role="form">
+							<form action="post" class="form-horizontal">
+								<form class="form-horizontal">
 									<div class="form-group">
 										<h4 style="padding: 10px 30px">Personal Detail</h4>
 										<label class="control-label col-sm-2" for="firstName">First
 											Name:</label>
 										<div class="col-sm-10 col-md-8">
 											<input type="text" class="form-control" id="firstName"
-												placeholder="Enter First Name">
+												path="firstName" placeholder="Enter First Name">
+
 										</div>
 									</div>
 									<div class="form-group">
@@ -75,7 +76,7 @@ body {
 											Name:</label>
 										<div class="col-sm-10 col-md-8">
 											<input type="text" class="form-control" id="lastName"
-												placeholder="Enter Last Name">
+												path="lastName" placeholder="Enter Last Name" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -83,7 +84,7 @@ body {
 											Status:</label>
 										<div class="col-sm-10 col-md-8">
 											<input type="text" class="form-control"
-												id="educationalStatus"
+												id="educationalStatus" path="educationalStatus"
 												placeholder="Enter Educational Status">
 										</div>
 									</div>
@@ -92,14 +93,14 @@ body {
 											of Birth:</label>
 										<div class="col-sm-10 col-md-8">
 											<input type="date" class="form-control" id="dateOfBirth"
-												placeholder="Enter Date of birth">
+												path="dob" placeholder="Enter Date of birth">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="summary">Summary:</label>
 										<div class="col-sm-10 col-md-8">
 											<input type="text" class="form-control" id="dateOfBirth"
-												placeholder="Enter Date of birth">
+												path="description" placeholder="Enter Date of birth">
 										</div>
 									</div>
 									<h4 style="padding: 10px 20px">Address</h4>
@@ -107,28 +108,28 @@ body {
 										<label class="control-label col-sm-2" for="country">Country:</label>
 										<div class="col-sm-10 col-md-8">
 											<input type="text" class="form-control" id="country"
-												placeholder="Enter Country">
+												path="country" placeholder="Enter Country">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="state">State:</label>
 										<div class="col-sm-10 col-md-8">
 											<input type="text" class="form-control" id="state"
-												placeholder="Enter State">
+												path="state" placeholder="Enter State">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="city">City:</label>
 										<div class="col-sm-10 col-md-8">
 											<input type="text" class="form-control" id="citry"
-												placeholder="Enter City">
+												path="city" placeholder="Enter City">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-2" for="zip">ZipCode:</label>
 										<div class="col-sm-10 col-md-8">
 											<input type="text" class="form-control" id="zip"
-												placeholder="Enter Zip Code">
+												path="zipCode" placeholder="Enter Zip Code">
 										</div>
 									</div>
 									<div class="form-group">
@@ -140,7 +141,7 @@ body {
 						</div>
 					</div>
 				</div>
-				<form method="get" action="<c:url value='/admin/'/>">
+				<form:form method="get" action="<c:url value="/admin/"/>">
 					<table class="table table-striped table-hover">
 						<thead>
 							<tr>
@@ -164,9 +165,8 @@ body {
 							</c:forEach>
 						</tbody>
 					</table>
-				</form>
+				</form:form>
 				<hr>
-
 				<h2>List of Foster Parents</h2>
 
 				<table class="table table-striped table-hover">
@@ -182,33 +182,17 @@ body {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>Canada</td>
-							<td>John</td>
-							<td>john@example.com</td>
-							<td>64198765</td>
-							<td><button type="button" class="btn btn-info btn-sm">new</button></td>
-						</tr>
-						<tr>
-							<td>Mary</td>
-							<td>Moe</td>
-							<td>Gerany</td>
-							<td>Mary</td>
-							<td>mary@example.com</td>
-							<td>641876543</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>July</td>
-							<td>Dooley</td>
-							<td>China</td>
-							<td>July</td>
-							<td>july@example.com</td>
-							<td>543216708</td>
-							<td></td>
-						</tr>
+						<c:forEach items="${fosterParent}" var="children">
+							<tr>
+								<td>This is the start</td>
+								<td><c:out value="${fosterParent.firstName}" /></td>
+								<td><c:out value="${fosterParent.lastName}" /></td>
+								<td><c:out value="${fosterParent.country}" /></td>
+								<td><c:out value="${fosterParent.email}" /></td>
+								<td><c:out value="${fosterParent.phone}" /></td>
+								<td><button type="button" class="btn btn-info btn-sm">new</button></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -224,32 +208,20 @@ body {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>2000</td>
-							<td>10/10/2007</td>
-						</tr>
-						<tr>
-							<td>Mary</td>
-							<td>Moe</td>
-							<td>1000</td>
-							<td>10/10/2007</td>
-						</tr>
-						<tr>
-							<td>July</td>
-							<td>Dooley</td>
-							<td>200</td>
-							<td>10/10/2007</td>
-						</tr>
+						<c:forEach items="${donation}" var="children">
+							<tr>
+								<td>This is the start</td>
+								<td><c:out value="${donation.firstName}" /></td>
+								<td><c:out value="${donation.lastName}" /></td>
+								<td><c:out value="${donation.amount}" /></td>
+								<td><c:out value="${donation.date}" /></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
 		</div>
-
-		<footer>
-		<p>&copy; Remote Foster</p>
-		</footer>
+		<%@ include file="../views/common/footer.jsp"%>
 	</div>
 	<script src="<c:url value="/resources/js/jquery-1.11.2.min.js" />"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
