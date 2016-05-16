@@ -32,7 +32,8 @@ public class DonationServiceImpl implements DonationService {
 	@Override
 	public List<Donation> getByDonationDate(Date date) {
 		// TODO Auto-generated method stub
-		return donationDao.findByDonatedDate();
+		return null;
+//		donationDao.findByDonatedDate();
 	}
 
 
