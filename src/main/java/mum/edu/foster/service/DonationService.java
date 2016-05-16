@@ -3,8 +3,11 @@ package mum.edu.foster.service;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import mum.edu.foster.domain.Donation;
 
+@Service
 public interface DonationService {
 
 	public List<Donation> getAll();
@@ -15,8 +18,8 @@ public interface DonationService {
 
 	public List<Donation> getByDonationDate(Date date);
 
-	public boolean update(Donation donation);
+	public void delete(long id);
 
-	public boolean delete(Donation donation);
+	public long save(Donation donation);
 
 }

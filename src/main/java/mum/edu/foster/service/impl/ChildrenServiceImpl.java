@@ -13,16 +13,14 @@ import mum.edu.foster.service.ChildrenService;
 
 @Service
 public class ChildrenServiceImpl implements ChildrenService {
-
+	
 	private ChildrenDAO childrenDao;
 
-	@Override
-	public boolean add() {
-		// TODO Auto-generated method stub
-
-		return false;
+	@Autowired
+	public ChildrenServiceImpl(ChildrenDAO childrenDao) {
+		this.childrenDao = childrenDao;
 	}
-
+	
 	@Override
 	public List<Person> findChildrenByFistName(String firstName) {
 		// TODO Auto-generated method stub
@@ -35,11 +33,11 @@ public class ChildrenServiceImpl implements ChildrenService {
 		return childrenDao.findByLastName(lastName);
 	}
 
-	@Override
-	public List<Person> findByEducationslStatus(String educationalStatus) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	/* @Override */
+	/*
+	 * public List<Person> findByEducationslStatus(String educationalStatus) {
+	 * // TODO Auto-generated method stub return childrenDao.findb; }
+	 */
 
 	@Override
 	public List<Person> findByDateofBirth(Date dob) {
@@ -48,21 +46,15 @@ public class ChildrenServiceImpl implements ChildrenService {
 	}
 
 	@Override
-	public boolean update(Children children) {
+	public void delete(long id) {
 		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean delete(long id) {
-		// TODO Auto-generated method stub
-		return childrenDao.delete(id);
+		childrenDao.delete(id);
 	}
 
 	@Override
 	public Person findChildrenById(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return childrenDao.findById(id);
 	}
 
 	@Override
@@ -72,4 +64,9 @@ public class ChildrenServiceImpl implements ChildrenService {
 		return childrenDao.findAll();
 	}
 
+	@Override
+	public long save(Children children) {
+
+		return childrenDao.save(children).getId();
+	}
 }

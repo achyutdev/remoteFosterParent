@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ChildrenDAO extends JpaRepository<Person, Long> {
 
-	public List<Person> findAll();
+	//public List<Person> findAll();
 
 	public List<Person> findByDob();
 
@@ -24,5 +24,5 @@ public interface ChildrenDAO extends JpaRepository<Person, Long> {
 	// public List<Person> findByEducationalStatusChildrens(String
 	// educationalStatus);
 
-	public boolean delete(long id);
+	//public void delete(long id);
 }

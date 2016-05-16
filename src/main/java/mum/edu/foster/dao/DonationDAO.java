@@ -10,6 +10,6 @@ import mum.edu.foster.domain.Donation;
 @Repository
 public interface DonationDAO extends JpaRepository<Donation, Long>{
 
-	public List<Donation> findAll();
+	//public List<Donation> findAll();
 	public List<Donation> findByDonatedDate();
 }
