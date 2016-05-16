@@ -24,13 +24,14 @@ public class ChildrenServiceImpl implements ChildrenService {
 	@Override
 	public List<Person> findChildrenByFistName(String firstName) {
 		// TODO Auto-generated method stub
-		return childrenDao.findByFirstName(firstName);
+		return null;
+//		childrenDao.findByFirstName(firstName);
 	}
 
 	@Override
 	public List<Person> findChildrenByLastName(String lastName) {
-		// TODO Auto-generated method stub
-		return childrenDao.findByLastName(lastName);
+		return null;
+//		childrenDao.findByLastName(lastName);
 	}
 
 	/* @Override */
@@ -41,25 +42,22 @@ public class ChildrenServiceImpl implements ChildrenService {
 
 	@Override
 	public List<Person> findByDateofBirth(Date dob) {
-		// TODO Auto-generated method stub
-		return childrenDao.findByDob();
+		return null;
+//		childrenDao.findByDob();
 	}
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
 		childrenDao.delete(id);
 	}
 
 	@Override
 	public Person findChildrenById(Long id) {
-		// TODO Auto-generated method stub
-		return childrenDao.findById(id);
+		return childrenDao.findOne(id);
 	}
 
 	@Override
 	public List<Person> findAll() {
-		// TODO Auto-generated method stub
 		System.out.println("Calling from controller!");
 		return childrenDao.findAll();
 	}

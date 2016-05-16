@@ -2,25 +2,18 @@ package mum.edu.foster.controller;
 
 import java.util.Locale;
 
-import javax.servlet.http.HttpServletRequest;
-
-import mum.edu.foster.domain.Children;
-import mum.edu.foster.domain.Person;
-import mum.edu.foster.service.ChildrenService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.vote.AuthenticatedVoter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.support.HttpRequestHandlerServlet;
 import org.springframework.web.servlet.ModelAndView;
+
+import mum.edu.foster.domain.Person;
+import mum.edu.foster.service.ChildrenService;
 
 /**
  * Handles requests for the application home page.
@@ -33,12 +26,13 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(HomeController.class);
 
-	@Secured(AuthenticatedVoter.IS_AUTHENTICATED_FULLY)
-	@RequestMapping(value = { "/", "/home**" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 
 		logger.info("Welcome home! The client locale is {}.", locale);
-
+		
+		System.out.println("We are here !!");
+		
 		/*
 		 * Date date = new Date(); DateFormat dateFormat =
 		 * DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG,
@@ -48,10 +42,10 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String homePage() {
 		return "home";
-	}
+	}*/
 
 	/*
 	 * @RequestMapping(value = "/home", method = RequestMethod.POST) public
