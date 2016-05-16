@@ -28,6 +28,26 @@ public abstract class Person {
 	@Temporal(TemporalType.DATE)
 	private Date dob;
 
+	public Person(long id, String firstName, String lastName) {
+		
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+//		this.address = address;
+//		this.image = image;
+//		this.dob = dob;
+	}
+
+	public Person(long id, String firstName, String lastName, Address address, byte[] image, Date dob) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.image = image;
+		this.dob = dob;
+	}
+
 	public long getId() {
 		return id;
 	}

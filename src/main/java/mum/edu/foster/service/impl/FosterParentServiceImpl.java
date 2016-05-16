@@ -3,7 +3,9 @@ package mum.edu.foster.service.impl;
 import java.util.List;
 
 import mum.edu.foster.dao.FosterParentDAO;
+import mum.edu.foster.domain.Children;
 import mum.edu.foster.domain.FosterParent;
+import mum.edu.foster.domain.Support;
 import mum.edu.foster.service.FosterParentService;
 
 public class FosterParentServiceImpl implements FosterParentService{
@@ -31,6 +33,13 @@ public class FosterParentServiceImpl implements FosterParentService{
 	public FosterParent getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void creatFosterPrent(long id, String FName, String Lname, String email, String phone, String occupation,
+			List<Support> supports, List<Children> children) {
+	
+		fosterParentDao.creatFosterParentDAO(id, FName, Lname, email, phone, occupation, supports, children);
 	}
 
 

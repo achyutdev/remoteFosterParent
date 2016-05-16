@@ -20,7 +20,7 @@
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/remoteFoster?createDatabaseIfNotExist=true" />
 		<property name="username" value="root" />
-		<property name="password" value="mysql" />
+		<property name="password" value="8106" />
 	</bean>
 
 	<bean id="hibernateJpaVendorAdapter"

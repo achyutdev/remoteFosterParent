@@ -12,6 +12,21 @@ import javax.persistence.OneToMany;
 @DiscriminatorValue("Childern")
 public class Children extends Person {
 
+	public Children(long id, String firstName, String lastName) {
+		super(id, firstName, lastName);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Children(long id, String firstName, String lastName, String description, String educationalStatus,
+			List<SupportNeed> supportNeeds, List<Expenditure> expeditures, List<FosterParent> fosterParents) {
+		super(id, firstName, lastName);
+		this.description = description;
+		this.educationalStatus = educationalStatus;
+		this.supportNeeds = supportNeeds;
+		this.expeditures = expeditures;
+		this.fosterParents = fosterParents;
+	}
+
 	private String description;
 	private String educationalStatus;
 	

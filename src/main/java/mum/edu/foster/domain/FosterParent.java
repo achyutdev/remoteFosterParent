@@ -17,6 +17,16 @@ public class FosterParent extends Person {
 	private String phone;
 	private String occupation;
 	
+	public FosterParent(long id, String firstName, String lastName,String email, String phone, String occupation, List<Support> supports,
+			List<Children> children) {
+		super(id,  firstName, lastName);
+		this.email = email;
+		this.phone = phone;
+		this.occupation = occupation;
+		this.supports = supports;
+		this.children = children;
+	}
+
 	@OneToMany
 	private List<Support> supports;
 	

@@ -1,5 +1,7 @@
 package mum.edu.foster.domain;
 
+import java.util.Date;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -7,6 +9,10 @@ import javax.persistence.Entity;
 @DiscriminatorValue("Staff")
 public class Staff extends Person {
 	
+	public Staff(long id, String firstName, String lastName, Address address, byte[] image, Date dob) {
+		super(id, firstName, lastName, address, image, dob);
+		// TODO Auto-generated constructor stub
+	}
 	private String position;
 	private double salary;
 	
