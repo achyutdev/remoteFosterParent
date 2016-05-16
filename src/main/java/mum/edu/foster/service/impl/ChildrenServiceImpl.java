@@ -3,11 +3,15 @@ package mum.edu.foster.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import mum.edu.foster.dao.ChildrenDAO;
 import mum.edu.foster.domain.Children;
 import mum.edu.foster.domain.Person;
 import mum.edu.foster.service.ChildrenService;
 
+@Service
 public class ChildrenServiceImpl implements ChildrenService {
 
 	private ChildrenDAO childrenDao;
@@ -20,31 +24,25 @@ public class ChildrenServiceImpl implements ChildrenService {
 	}
 
 	@Override
-	public List<Person> getAll() {
-		// TODO Auto-generated method stub
-		return childrenDao.findAll();
-	}
-
-	@Override
-	public List<Person> getChildrenByFistName(String firstName) {
+	public List<Person> findChildrenByFistName(String firstName) {
 		// TODO Auto-generated method stub
 		return childrenDao.findByFirstName(firstName);
 	}
 
 	@Override
-	public List<Person> getChildrenByLastName(String lastName) {
+	public List<Person> findChildrenByLastName(String lastName) {
 		// TODO Auto-generated method stub
 		return childrenDao.findByLastName(lastName);
 	}
 
 	@Override
-	public List<Person> getByEducationslStatus(String educationalStatus) {
+	public List<Person> findByEducationslStatus(String educationalStatus) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Person> getByDateofBirth(Date dob) {
+	public List<Person> findByDateofBirth(Date dob) {
 		// TODO Auto-generated method stub
 		return childrenDao.findByDob();
 	}
@@ -62,9 +60,16 @@ public class ChildrenServiceImpl implements ChildrenService {
 	}
 
 	@Override
-	public Person getChildrenById(Long id) {
+	public Person findChildrenById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Person> findAll() {
+		// TODO Auto-generated method stub
+		System.out.println("Calling from controller!");
+		return childrenDao.findAll();
 	}
 
 }
