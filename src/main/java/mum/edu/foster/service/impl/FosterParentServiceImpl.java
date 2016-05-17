@@ -2,14 +2,18 @@ package mum.edu.foster.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import mum.edu.foster.dao.FosterParentDAO;
 import mum.edu.foster.domain.FosterParent;
+import mum.edu.foster.domain.Person;
 import mum.edu.foster.service.FosterParentService;
+@Service
+public class FosterParentServiceImpl implements FosterParentService {
 
-public class FosterParentServiceImpl implements FosterParentService{
-
+	@Autowired
 	private FosterParentDAO fosterParentDao;
-
 
 	@Override
 	public Long save(FosterParent fosterParent) {
@@ -22,17 +26,21 @@ public class FosterParentServiceImpl implements FosterParentService{
 	}
 
 	@Override
-	public List<FosterParent> getAll() {
+	public List<Person> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return fosterParentDao.findAll();
 	}
 
 	@Override
-	public FosterParent getById(Long id) {
+	public Person findById(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return fosterParentDao.findById(id);
 	}
 
+	@Override
+	public Person displayDetail(Long id) {
+		// TODO Auto-generated method stub
+		return fosterParentDao.displayDetail(id);
+	}
 
-	
 }

@@ -7,40 +7,35 @@ import mum.edu.foster.dao.DonationDAO;
 import mum.edu.foster.domain.Donation;
 import mum.edu.foster.service.DonationService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class DonationServiceImpl implements DonationService {
 
+	@Autowired
 	private DonationDAO donationDao;
 
 	@Override
-	public List<Donation> getAll() {
+	public List<Donation> findAll() {
 		// TODO Auto-generated method stub
 		return donationDao.findAll();
 	}
 
 	@Override
-	public boolean add(Donation donation) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public List<Donation> getByAmount(double amount) {
+	public List<Donation> findByAmount(double amount) {
 		// TODO Auto-generated method stub
 		return donationDao.findAll();
 	}
 
 	@Override
-	public List<Donation> getByDonationDate(Date date) {
+	public List<Donation> findByDate(Date date) {
 		// TODO Auto-generated method stub
-		return null;
-//		donationDao.findByDonatedDate();
+		return donationDao.findByDate(date);
 	}
-
 
 	@Override
 	public void delete(long id) {
 		// TODO Auto-generated method stub
-		 donationDao.delete(id);
+		donationDao.delete(id);
 
 	}
 
@@ -49,4 +44,5 @@ public class DonationServiceImpl implements DonationService {
 		// TODO Auto-generated method stub
 		return donationDao.save(donation).getId();
 	}
+
 }

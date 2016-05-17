@@ -16,7 +16,7 @@ public class Donation {
 	private double amount;
 	
 	@Temporal(TemporalType.DATE)
-	private Date donatedDate;
+	private Date date;
 	
 	public long getId() {
 		return id;
@@ -31,10 +31,10 @@ public class Donation {
 		this.amount = amount;
 	}
 	public Date getDonatedDate() {
-		return donatedDate;
+		return date;
 	}
 	public void setDonatedDate(Date donatedDate) {
-		this.donatedDate = donatedDate;
+		this.date = donatedDate;
 	}
 	
 	

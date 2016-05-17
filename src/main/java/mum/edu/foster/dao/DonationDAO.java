@@ -1,12 +1,18 @@
 package mum.edu.foster.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.Date;
+import java.util.List;
 
 import mum.edu.foster.domain.Donation;
 
-@Repository
-public interface DonationDAO extends JpaRepository<Donation, Long>{
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-//	public List<Donation> findByDonatedDate();
+@Repository
+public interface DonationDAO extends JpaRepository<Donation, Long> {
+
+
+	public List<Donation> findByDate(Date date);
+
+	public List<Donation> findByAmount(double amount);
 }

@@ -3,47 +3,44 @@ package mum.edu.foster.service.impl;
 import java.util.List;
 import java.util.Locale.Category;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import mum.edu.foster.dao.ExpenditureDAO;
 import mum.edu.foster.domain.Expenditure;
 import mum.edu.foster.service.ExpenditureService;
 
-public class ExpenditureServiceImpl implements ExpenditureService{
-private ExpenditureDAO expindituredao;
+@Service
+public class ExpenditureServiceImpl implements ExpenditureService {
+
+	@Autowired
+	private ExpenditureDAO expinditureDao;
+
 	@Override
-	public List<Expenditure> getAll() {
-		
-		return expindituredao.findAll();
+	public List<Expenditure> findAll() {
+
+		return expinditureDao.findAll();
 	}
 
 	@Override
-	public boolean addExpenditure(Expenditure expenditure) {
-		
-		return false;
+	public long save(Expenditure expenditure) {
+
+		return expinditureDao.save(expenditure).getId();
 	}
 
 	@Override
-	public List<Expenditure> getByAmount(double amount) {
-		// TODO Auto-generated method stub
-		return expindituredao.findAll();
+	public void delete(long id) {
+		expinditureDao.delete(id);
+
+	}
+	@Override
+	public List<Expenditure> findByCategory(String category) {
+
+		return expinditureDao.findByCategory(category);
 	}
 
 	@Override
-	public List<Expenditure> getByCategory(Category category) {
-		// TODO Auto-generated method stub
-		return null;
-//		expindituredao.findByCategory();
+	public List<Expenditure> findByAmount(double amount) {
+		return expinditureDao.findByAmount(amount);
 	}
-
-	@Override
-	public boolean update(Expenditure expenditure) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean delete(Expenditure expenditure) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }

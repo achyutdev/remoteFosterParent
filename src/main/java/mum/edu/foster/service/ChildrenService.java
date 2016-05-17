@@ -15,16 +15,18 @@ public interface ChildrenService {
 
 	public List<Person> findAll();
 
-	public Person findChildrenById(Long id);
+	public Person findById(Long id);
 
-	public List<Person> findChildrenByFistName(String firstName);
+	public List<Person> findByFistName(String firstName);
 
-	public List<Person> findChildrenByLastName(String lastName);
+	public List<Person> findByLastName(String lastName);
 
 	/* public List<Person> findByEducationslStatus(String educationalStatus); */
 
 	public List<Person> findByDateofBirth(Date dob);
 
 	public void delete(long id);
+
+	public Person displayDetail(long id);
 
 }

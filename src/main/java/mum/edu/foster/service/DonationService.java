@@ -10,13 +10,11 @@ import mum.edu.foster.domain.Donation;
 @Service
 public interface DonationService {
 
-	public List<Donation> getAll();
+	public List<Donation> findAll();
 
-	public boolean add(Donation donation);
+	public List<Donation> findByAmount(double amount);
 
-	public List<Donation> getByAmount(double amount);
-
-	public List<Donation> getByDonationDate(Date date);
+	public List<Donation> findByDate(Date date);
 
 	public void delete(long id);
 

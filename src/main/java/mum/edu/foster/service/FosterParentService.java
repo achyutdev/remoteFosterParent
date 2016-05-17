@@ -2,9 +2,11 @@ package mum.edu.foster.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import mum.edu.foster.domain.FosterParent;
+import mum.edu.foster.domain.Person;
+import mum.edu.foster.service.impl.FosterParentServiceImpl;
+
+import org.springframework.stereotype.Service;
 
 @Service
 public interface FosterParentService {
@@ -13,8 +15,10 @@ public interface FosterParentService {
 
 	public void delete(FosterParent fosterParent);
 
-	public List<FosterParent> getAll();
+	public List<Person> findAll();
 
-	public FosterParent getById(Long id);
+	public Person findById(Long id);
+
+	public Person displayDetail(Long id);
 
 }
