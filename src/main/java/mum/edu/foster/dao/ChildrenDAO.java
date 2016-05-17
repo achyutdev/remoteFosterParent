@@ -20,6 +20,6 @@ public interface ChildrenDAO extends JpaRepository<Person, Long> {
 
 	public List<Person> findByLastName(String lastName);
 
-	 public List<Person> findByEducationalStatusChildrens(String  educationalStatus);
+	
 
 }
