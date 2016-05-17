@@ -30,7 +30,8 @@ private ExpenditureDAO expindituredao;
 	@Override
 	public List<Expenditure> getByCategory(Category category) {
 		// TODO Auto-generated method stub
-		return expindituredao.findByCategory();
+		return null;
+//		expindituredao.findByCategory();
 	}
 
 	@Override

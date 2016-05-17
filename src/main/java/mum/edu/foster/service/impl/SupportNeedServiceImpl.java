@@ -28,7 +28,8 @@ public class SupportNeedServiceImpl implements SupportNeedService {
 
 	@Override
 	public List<SupportNeed> findByCategory() {
-		return supportNeedDao.findByCategory();
+		return null;
+	//	return supportNeedDao.findByCategory();
 	}
 
 	@Override

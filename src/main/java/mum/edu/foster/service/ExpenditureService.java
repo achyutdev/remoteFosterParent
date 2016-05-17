@@ -3,8 +3,11 @@ package mum.edu.foster.service;
 import java.util.List;
 import java.util.Locale.Category;
 
+import org.springframework.stereotype.Service;
+
 import mum.edu.foster.domain.Expenditure;
 
+@Service
 public interface ExpenditureService {
 
 	public List<Expenditure> getAll();

@@ -8,7 +8,9 @@ import mum.edu.foster.domain.Donation;
 import mum.edu.foster.service.DonationService;
 
 public class DonationServiceImpl implements DonationService {
-private DonationDAO donationDao; 
+
+	private DonationDAO donationDao;
+
 	@Override
 	public List<Donation> getAll() {
 		// TODO Auto-generated method stub
@@ -30,19 +32,21 @@ private DonationDAO donationDao;
 	@Override
 	public List<Donation> getByDonationDate(Date date) {
 		// TODO Auto-generated method stub
-		return donationDao.findByDonatedDate() ;
+		return null;
+//		donationDao.findByDonatedDate();
+	}
+
+
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		 donationDao.delete(id);
+
 	}
 
 	@Override
-	public boolean update(Donation donation) {
+	public long save(Donation donation) {
 		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean delete(Donation donation) {
-		// TODO Auto-generated method stub
-		return false;
-	
+		return donationDao.save(donation).getId();
 	}
 }
