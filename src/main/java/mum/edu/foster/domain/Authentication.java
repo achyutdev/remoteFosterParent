@@ -11,9 +11,15 @@ public class Authentication {
 	private long id;
 	private String userName;
 	private String password;
-	private String passwordConfirmation;
+	private String role;
 	
 	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public long getId() {
 		return id;
 	}
@@ -32,13 +38,6 @@ public class Authentication {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getPasswordConfirmation() {
-		return passwordConfirmation;
-	}
-	public void setPasswordConfirmation(String passwordConfirmation) {
-		this.passwordConfirmation = passwordConfirmation;
-	}
-	
 	
 	
 }

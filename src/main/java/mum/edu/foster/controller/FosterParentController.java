@@ -16,6 +16,7 @@ public class FosterParentController {
 
 	@Autowired
 	private FosterParentDAO fosterParentDao;
+	
 
 	@RequestMapping(value = "/fosterParent", method = RequestMethod.GET)
 	public String forsterParent(Model moder) {
