@@ -16,19 +16,13 @@ public class ChildrenServiceImpl implements ChildrenService {
 	
 	private ChildrenDAO childrenDao;
 
-<<<<<<< HEAD
-	@Override
-	public boolean add() {
-		// TODO Auto-generated method stub
-//auto generat
-		return false;
-=======
+
+
 	@Autowired
 	public ChildrenServiceImpl(ChildrenDAO childrenDao) {
 		this.childrenDao = childrenDao;
->>>>>>> 42e94491fc761d88bc1ee413db1080a917b86620
+
 	}
-	
 	@Override
 	public List<Person> findChildrenByFistName(String firstName) {
 		// TODO Auto-generated method stub
@@ -42,11 +36,10 @@ public class ChildrenServiceImpl implements ChildrenService {
 //		childrenDao.findByLastName(lastName);
 	}
 
-	/* @Override */
-	/*
-	 * public List<Person> findByEducationslStatus(String educationalStatus) {
-	 * // TODO Auto-generated method stub return childrenDao.findb; }
-	 */
+	
+	
+	
+	 
 
 	@Override
 	public List<Person> findByDateofBirth(Date dob) {
