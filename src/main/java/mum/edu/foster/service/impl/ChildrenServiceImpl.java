@@ -3,13 +3,13 @@ package mum.edu.foster.service.impl;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import mum.edu.foster.dao.ChildrenDAO;
 import mum.edu.foster.domain.Children;
 import mum.edu.foster.domain.Person;
 import mum.edu.foster.service.ChildrenService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class ChildrenServiceImpl implements ChildrenService {
@@ -50,9 +50,9 @@ public class ChildrenServiceImpl implements ChildrenService {
 	}
 
 	@Override
-	public long save(Children children) {
+	public long save(Person children) {
 
-		return childrenDao.save(children).getId();
+		return childrenDao.save(children).getId();;
 	}
 
 	@Override

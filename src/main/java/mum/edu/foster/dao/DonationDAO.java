@@ -12,7 +12,5 @@ import org.springframework.stereotype.Repository;
 public interface DonationDAO extends JpaRepository<Donation, Long> {
 
 
-	public List<Donation> findByDate(Date date);
-
 	public List<Donation> findByAmount(double amount);
 }

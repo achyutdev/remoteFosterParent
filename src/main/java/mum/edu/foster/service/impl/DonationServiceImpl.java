@@ -1,6 +1,5 @@
 package mum.edu.foster.service.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import mum.edu.foster.dao.DonationDAO;
@@ -24,12 +23,6 @@ public class DonationServiceImpl implements DonationService {
 	public List<Donation> findByAmount(double amount) {
 		// TODO Auto-generated method stub
 		return donationDao.findAll();
-	}
-
-	@Override
-	public List<Donation> findByDate(Date date) {
-		// TODO Auto-generated method stub
-		return donationDao.findByDate(date);
 	}
 
 	@Override

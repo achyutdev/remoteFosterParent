@@ -10,12 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Admin</title>
-<style>
-body {
-	padding-top: 50px;
-	padding-bottom: 20px;
-}
-</style>
+<%@ include file="../views/common/linkTostyle.jsp"%>
 <link href="<c:url value= "/resources/css/style.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
@@ -23,29 +18,8 @@ body {
 
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-				aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">Remote Foster</a>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse">
-			<form class="navbar-form navbar-right" role="form">
-				<div class="form-group">
-					<span>Toggle navigation</span>
-				</div>
+	<%@ include file="../views/common/navmenu.jsp"%>
 
-			</form>
-		</div>
-		<!--/.navbar-collapse -->
-	</div>
-	</nav>
 	<div class="container">
 		<!-- Example row of columns -->
 		<div class="row">
@@ -54,99 +28,12 @@ body {
 				<!-- Large modal -->
 				<button type="button" class="btn btn-primary" data-toggle="modal"
 					data-target=".bs-example-modal-lg">Add</button>
-
-				<div class="modal fade bs-example-modal-lg" tabindex="-1"
-					role="dialog" aria-labelledby="myLargeModalLabel">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<form action="post" class="form-horizontal">
-								<form class="form-horizontal">
-									<div class="form-group">
-										<h4 style="padding: 10px 30px">Personal Detail</h4>
-										<label class="control-label col-sm-2" for="firstName">First
-											Name:</label>
-										<div class="col-sm-10 col-md-8">
-											<input type="text" class="form-control" id="firstName"
-												path="firstName" placeholder="Enter First Name">
-
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="lastName">Last
-											Name:</label>
-										<div class="col-sm-10 col-md-8">
-											<input type="text" class="form-control" id="lastName"
-												path="lastName" placeholder="Enter Last Name" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="educationalStatus">Educational
-											Status:</label>
-										<div class="col-sm-10 col-md-8">
-											<input type="text" class="form-control"
-												id="educationalStatus" path="educationalStatus"
-												placeholder="Enter Educational Status">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="dateOfBirth">Date
-											of Birth:</label>
-										<div class="col-sm-10 col-md-8">
-											<input type="date" class="form-control" id="dateOfBirth"
-												path="dob" placeholder="Enter Date of birth">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="summary">Summary:</label>
-										<div class="col-sm-10 col-md-8">
-											<input type="text" class="form-control" id="dateOfBirth"
-												path="description" placeholder="Enter Date of birth">
-										</div>
-									</div>
-									<h4 style="padding: 10px 20px">Address</h4>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="country">Country:</label>
-										<div class="col-sm-10 col-md-8">
-											<input type="text" class="form-control" id="country"
-												path="country" placeholder="Enter Country">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="state">State:</label>
-										<div class="col-sm-10 col-md-8">
-											<input type="text" class="form-control" id="state"
-												path="state" placeholder="Enter State">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="city">City:</label>
-										<div class="col-sm-10 col-md-8">
-											<input type="text" class="form-control" id="citry"
-												path="city" placeholder="Enter City">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2" for="zip">ZipCode:</label>
-										<div class="col-sm-10 col-md-8">
-											<input type="text" class="form-control" id="zip"
-												path="zipCode" placeholder="Enter Zip Code">
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="col-sm-offset-2 col-sm-10">
-											<button type="submit" class="btn btn-default">Register</button>
-										</div>
-									</div>
-								</form>
-						</div>
-					</div>
-				</div>
-				<form:form method="get" action="<c:url value="/admin/"/>">
+				<form:form  modelAttribute="admin" method="get">
 					<table class="table table-striped table-hover">
 						<thead>
 							<tr>
-								<th>Firstname</th>
-								<th>Lastname</th>
+								<th>First Name</th>
+								<th>Last Name</th>
 								<th>Country</th>
 								<th>Date of birth</th>
 								<th>Educational Status</th>
@@ -172,8 +59,8 @@ body {
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							<th>Firstname</th>
-							<th>Lastname</th>
+							<th>First Name</th>
+							<th>Last Name</th>
 							<th>Country</th>
 							<th>Occupation</th>
 							<th>Email</th>
@@ -201,8 +88,8 @@ body {
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							<th>Firstname</th>
-							<th>Lastname</th>
+							<th>First Name</th>
+							<th>Last Name</th>
 							<th>Amount</th>
 							<th>Date</th>
 						</tr>

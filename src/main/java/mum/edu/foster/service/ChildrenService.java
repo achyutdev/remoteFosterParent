@@ -11,8 +11,6 @@ import mum.edu.foster.domain.Person;
 @Service
 public interface ChildrenService {
 
-	public long save(Children children);
-
 	public List<Person> findAll();
 
 	public Person findById(Long id);
@@ -28,5 +26,7 @@ public interface ChildrenService {
 	public void delete(long id);
 
 	public Person displayDetail(long id);
+
+	public long save(Person children);
 
 }
