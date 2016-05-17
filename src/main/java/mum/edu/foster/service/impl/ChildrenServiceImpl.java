@@ -14,57 +14,57 @@ import mum.edu.foster.service.ChildrenService;
 @Service
 public class ChildrenServiceImpl implements ChildrenService {
 	
-	private ChildrenDAO childrenDao;
-
-	@Autowired
-	public ChildrenServiceImpl(ChildrenDAO childrenDao) {
-		this.childrenDao = childrenDao;
-	}
-	
-	@Override
-	public List<Person> findChildrenByFistName(String firstName) {
-		// TODO Auto-generated method stub
-		return null;
-//		childrenDao.findByFirstName(firstName);
-	}
-
-	@Override
-	public List<Person> findChildrenByLastName(String lastName) {
-		return null;
-//		childrenDao.findByLastName(lastName);
-	}
-
-	/* @Override */
-	/*
-	 * public List<Person> findByEducationslStatus(String educationalStatus) {
-	 * // TODO Auto-generated method stub return childrenDao.findb; }
-	 */
-
-	@Override
-	public List<Person> findByDateofBirth(Date dob) {
-		return null;
-//		childrenDao.findByDob();
-	}
-
-	@Override
-	public void delete(long id) {
-		childrenDao.delete(id);
-	}
-
-	@Override
-	public Person findChildrenById(Long id) {
-		return childrenDao.findOne(id);
-	}
-
-	@Override
-	public List<Person> findAll() {
-		System.out.println("Calling from controller!");
-		return childrenDao.findAll();
-	}
-
-	@Override
-	public long save(Children children) {
-
-		return childrenDao.save(children).getId();
-	}
+//	private ChildrenDAO childrenDao;
+//
+//	@Autowired
+//	public ChildrenServiceImpl(ChildrenDAO childrenDao) {
+//		this.childrenDao = childrenDao;
+//	}
+//	
+//	@Override
+//	public List<Person> findChildrenByFistName(String firstName) {
+//		// TODO Auto-generated method stub
+//		return null;
+////		childrenDao.findByFirstName(firstName);
+//	}
+//
+//	@Override
+//	public List<Person> findChildrenByLastName(String lastName) {
+//		return null;
+////		childrenDao.findByLastName(lastName);
+//	}
+//
+//	/* @Override */
+//	/*
+//	 * public List<Person> findByEducationslStatus(String educationalStatus) {
+//	 * // TODO Auto-generated method stub return childrenDao.findb; }
+//	 */
+//
+//	@Override
+//	public List<Person> findByDateofBirth(Date dob) {
+//		return null;
+////		childrenDao.findByDob();
+//	}
+//
+//	@Override
+//	public void delete(long id) {
+//		childrenDao.delete(id);
+//	}
+//
+//	@Override
+//	public Person findChildrenById(Long id) {
+//		return childrenDao.findOne(id);
+//	}
+//
+//	@Override
+//	public List<Person> findAll() {
+//		System.out.println("Calling from controller!");
+//		return childrenDao.findAll();
+//	}
+//
+//	@Override
+//	public long save(Children children) {
+//
+//		return childrenDao.save(children).getId();
+//	}
 }

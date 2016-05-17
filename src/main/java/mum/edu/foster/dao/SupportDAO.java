@@ -11,6 +11,6 @@ import mum.edu.foster.domain.Support;
 public interface SupportDAO extends JpaRepository<Support, Long>{
 	
 	
-	public List<Support> findByCategory();
+//	public List<Support> findByCategory();
 
 }

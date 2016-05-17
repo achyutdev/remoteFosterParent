@@ -9,12 +9,10 @@ import mum.edu.foster.domain.FosterParent;
 @Service
 public interface FosterParentService {
 
-	public Long save(FosterParent fosterParent);
+/*	public Long save(FosterParent fosterParent);
 
 	public void delete(FosterParent fosterParent);
 
-	public List<FosterParent> getAll();
-
-	public FosterParent getById(Long id);
+	public List<FosterParent> getAll();*/
 
 }

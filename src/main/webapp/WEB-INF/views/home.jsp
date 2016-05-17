@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page session="false"%>
 <html>
@@ -13,6 +14,12 @@
 
 	<div class="container">
 		<!-- Example row of columns -->
+		<c:if test="${message != null}">
+			<div class="alert alert-success">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Success!</strong>${message}
+			</div>
+		</c:if>
 		<div class="row">
 			<div class="col-md-7">
 				<div class="jumbotron">
@@ -35,7 +42,7 @@
 				</c:if>
 
 				<form class="form-horizontal" role="form" method="post"
-					action="<c:url value='j_spring_security_check' />">
+					action="${contextPath}/admin">
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="email">Email:</label>
 						<div class="col-sm-9">
@@ -61,12 +68,12 @@
 							<button type="reset" class="btn btn-info">Reset</button>
 						</div>
 					</div>
-					
-						
+
+
 				</form>
 
 				<div class="text-right">
-					<a href="register.html"> Register Now</a>
+					<a href="${contextPath}/fosterParentReg"> Register Now</a>
 				</div>
 
 			</div>

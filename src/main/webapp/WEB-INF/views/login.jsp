@@ -62,12 +62,13 @@
 
 			</div>
 		</div>
+			<%@ include file="../views/common/footer.jsp"%>
 	</div>
 
 
 
 	<%@ include file="../views/common/linkToJs.jsp"%>
-	<%@ include file="../views/common/footer.jsp"%>
+
 
 </body>
 </html>

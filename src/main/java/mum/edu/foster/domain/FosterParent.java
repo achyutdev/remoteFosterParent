@@ -17,6 +17,7 @@ public class FosterParent extends Person {
 	private String phone;
 	private String occupation;
 	
+	
 	@OneToMany
 	private List<Support> supports;
 	
@@ -58,7 +59,23 @@ public class FosterParent extends Person {
 		this.supports = supports;
 	}
 	
-	
+	private String pwd;
+
+	public List<Children> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<Children> children) {
+		this.children = children;
+	}
+
+	public String getPassword() {
+		return pwd;
+	}
+
+	public void setPassword(String password) {
+		this.pwd = password;
+	}
 	
 	
 }

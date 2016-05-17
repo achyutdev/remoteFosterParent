@@ -19,7 +19,6 @@ public class SupportNeedController {
 		this.suppdao = suppdao;
 	}
 	
-	
 	@RequestMapping("/supportneed")
 	public void jpt(){ 
 		SupportNeed supportneed = new SupportNeed();

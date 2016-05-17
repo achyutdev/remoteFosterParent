@@ -10,15 +10,15 @@ import mum.edu.foster.domain.Expenditure;
 @Service
 public interface ExpenditureService {
 
-	public List<Expenditure> getAll();
-
-	public boolean addExpenditure(Expenditure expenditure);
-
-	public List<Expenditure> getByAmount(double amount);
-
-	public List<Expenditure> getByCategory(Category category);
-
-	public boolean update(Expenditure expenditure);
-
-	public boolean delete(Expenditure expenditure);
+//	public List<Expenditure> getAll();
+//
+//	public boolean addExpenditure(Expenditure expenditure);
+//
+//	public List<Expenditure> getByAmount(double amount);
+//
+//	public List<Expenditure> getByCategory(Category category);
+//
+//	public boolean update(Expenditure expenditure);
+//
+//	public boolean delete(Expenditure expenditure);
 }

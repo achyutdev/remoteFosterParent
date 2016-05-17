@@ -8,6 +8,4 @@ import mum.edu.foster.domain.Person;
 @Repository
 public interface FosterParentDAO extends JpaRepository<Person, Long> {
 
-
-	
 }
