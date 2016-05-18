@@ -14,7 +14,7 @@ public interface FosterParentService {
 
 	public void delete(FosterParent fosterParent);
 
-	List<Person> findAll();
+	List<FosterParent> findAll();
 
 	Person findById(Long id);
 

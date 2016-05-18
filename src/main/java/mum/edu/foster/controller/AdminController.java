@@ -23,20 +23,14 @@ public class AdminController {
 	@Autowired
 	private DonationDAO donationService;
 
-/*	public AdminController(ChildrenService childrenService,
-			FosterParentService fosterParent, DonationService donationService) {
-		this.childrenService = childrenService;
-		this.fosterParent = fosterParent;
-		this.donationService = donationService;
-	}*/
-
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Model model) {
-		
-		/*model.addAttribute("children", childrenService.findAll());
+
+		System.out.println(childrenService.findAll().size());
+		model.addAttribute("children", childrenService.findAll());
 		model.addAttribute("fosterParent", fosterParent.findAll());
-		model.addAttribute("donation", donationService.findAll());*/
+		model.addAttribute("donation", donationService.findAll());
 
 		return "admin";
-	}
+	}*/
 }

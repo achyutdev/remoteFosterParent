@@ -3,14 +3,14 @@ package mum.edu.foster.service.impl;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import mum.edu.foster.dao.DonationDAO;
 import mum.edu.foster.domain.Donation;
+import mum.edu.foster.domain.FosterParent;
 import mum.edu.foster.service.DonationService;
 
-public class DonationServiceImpl implements DonationService {
+import org.springframework.beans.factory.annotation.Autowired;
 
+public class DonationServiceImpl implements DonationService {
 
 	@Autowired
 	private DonationDAO donationDao;
@@ -51,5 +51,11 @@ public class DonationServiceImpl implements DonationService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+	@Override
+	public List<FosterParent> findDetailAll() {
+		// TODO Auto-generated method stub
+		return donationDao.findDetailAll();
+	}
+
 }

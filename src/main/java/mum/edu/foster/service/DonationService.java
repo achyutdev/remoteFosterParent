@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import mum.edu.foster.domain.Donation;
+import mum.edu.foster.domain.FosterParent;
 
 @Service
 public interface DonationService {
@@ -22,5 +23,6 @@ public interface DonationService {
 	public long save(Donation donation);
 
 	List<Donation> findByAmount(double amount);
+	public List<FosterParent> findDetailAll();
 
 }

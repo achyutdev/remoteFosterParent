@@ -9,11 +9,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.hibernate.validator.constraints.Email;
+
 @Entity
 @DiscriminatorValue("FosterParent")
 public class FosterParent extends Person {
 
 	private String email;
+	
 	private String phone;
 	private String occupation;
 	
@@ -31,6 +34,7 @@ public class FosterParent extends Person {
 		return email;
 	}
 
+	@Email
 	public void setEmail(String email) {
 		this.email = email;
 	}
