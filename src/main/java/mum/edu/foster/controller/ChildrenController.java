@@ -12,9 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import mum.edu.foster.dao.ChildrenDAO;
 import mum.edu.foster.domain.Children;
-import mum.edu.foster.domain.FosterParent;
-import mum.edu.foster.domain.Person;
-import mum.edu.foster.service.ChildrenService;
 
 @Controller
 public class ChildrenController {

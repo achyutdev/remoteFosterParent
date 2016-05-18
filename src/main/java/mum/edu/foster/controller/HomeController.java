@@ -2,17 +2,23 @@ package mum.edu.foster.controller;
 
 import java.util.Locale;
 
-import mum.edu.foster.dao.ChildrenDAO;
-import mum.edu.foster.dao.DonationDAO;
-import mum.edu.foster.dao.FosterParentDAO;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import mum.edu.foster.dao.ChildrenDAO;
+import mum.edu.foster.dao.DonationDAO;
+import mum.edu.foster.dao.FosterParentDAO;
+import mum.edu.foster.domain.FosterParent;
+import mum.edu.foster.util.NoSuchResourceException;
 
 @Controller
 public class HomeController {
@@ -30,7 +36,7 @@ public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	@RequestMapping(value = { "/", "/admin" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/admin" }, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -42,7 +48,6 @@ public class HomeController {
 		 * DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG,
 		 * locale); String formattedDate = dateFormat.format(date);
 		 */
-		//model.addAttribute("admin",childrenService.findAll());
 		
 		
 		model.addAttribute("children", childrenService.findAll());
@@ -51,42 +56,39 @@ public class HomeController {
 
 		return "admin";
 	}
+	
+	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+	public String home() {
+		return "home";
+	}
+	
 
+	@RequestMapping(value = "/contactUs")
+	public String contactUs(Model model){
+		model.addAttribute("address","Fairfield IA");
+		model.addAttribute("phoneOffice","9878653453");
+		model.addAttribute("faxOffice","78234638746");
+		return "contactUs";
+	}
+	
+	@RequestMapping(value = "/aboutUs")
+	public String aboutUs(Model model){
+		model.addAttribute("description","We are to help children.");
+		return "aboutUs";
+	}
+	
+	
 	@RequestMapping("*")
 	public String error404() {
 		return "404";
 	}
 
-/*	// Spring Security see this :
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
-			@RequestParam(value = "logout", required = false) String logout) {
 
-		ModelAndView model = new ModelAndView();
-		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
-		}
-
-		if (logout != null) {
-			model.addObject("msg", "You've been logged out successfully.");
-		}
-		model.setViewName("login");
-
-		return model;
-
-	}*/
-
-/*	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String adminPage(Model model) {
-		return "admin";
+	@ExceptionHandler(value=NoSuchResourceException.class)
+	public ModelAndView handle(Exception e) {
+		ModelAndView mv = new ModelAndView();
+		mv.getModel().put("e", e);
+		mv.setViewName("noSuchResource");
+		return mv;
 	}
-
-	@RequestMapping(value = "/admin", method = RequestMethod.POST)
-	public String createChildren(@ModelAttribute("newChildren") Children children) {
-
-		Children newChildren = new Children();
-		newChildren.setFirstName("Kebed");
-		newChildren.setLastName("Hagos");
-		return "redirect:/adminPage";
-	}*/
 }

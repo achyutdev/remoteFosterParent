@@ -5,34 +5,31 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+	<!-- needed for security tag lib -->
+	<beans:bean id="webexpressionHandler"
+		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+
 	<!-- enable use-expressions -->
 	<security:http auto-config="true" use-expressions="true">
 
-
 		<security:intercept-url pattern="/home" access="isAnonymous()" />
-		<security:intercept-url pattern="/childrenlist"
-			access="isAnonymous()" />
-		<security:intercept-url pattern="/contact"
-			access="isAnonymous()" />
-		<security:intercept-url pattern="/aboutus"
-			access="isAnonymous()" />
-		<security:intercept-url pattern="/fosterParentReg"
-			access="isAnonymous()" />
+		<security:intercept-url pattern="/childrenList"	access="permitAll" />
+		<security:intercept-url pattern="/contact"	access="isAnonymous()" />
+		<security:intercept-url pattern="/aboutus"	access="isAnonymous()" />
+		<security:intercept-url pattern="/fosterParentReg" access="isAnonymous()" />
+		<security:intercept-url pattern="/fosterParentRegSave"	method="POST" access="isAnonymous()" />
+		<security:intercept-url pattern="/**"	access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
+
 
 		<!-- access denied page -->
 		<!-- <access-denied-handler error-page="/403" /> -->
 		<security:form-login login-processing-url="/j_spring_security_check"
 			login-page="/home" default-target-url="/admin"
-			authentication-failure-url="/home?login_error=1" username-parameter="email"
-			password-parameter="pwd" />
+			authentication-failure-url="/home?login_error=1" username-parameter="username"
+			password-parameter="password" />
 		<security:logout logout-success-url="/home?logout" />
 
-		<!-- <security:intercept-url pattern="/admin/**" access="isAnonymous()" 
-			/> -->
-		<security:intercept-url pattern="/admin/**"
-			access="hasAnyRole('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/fosterParent/**"
-			access="hasAnyRole('ROLE_USER')" />
+
 
 	</security:http>
 
@@ -52,11 +49,13 @@
 	<security:authentication-manager>
 
 		<security:authentication-provider>
+			<security:password-encoder hash="plaintext" />
 			<security:user-service>
-				<security:user name="admin" password="admin"
+				<security:user name="asdf" password="asdf"
 					authorities="ROLE_ADMIN" />
-				<security:user name="user" password="user"
+				<security:user name="1234" password="1234"
 					authorities="ROLE_USER" />
+
 			</security:user-service>
 		</security:authentication-provider>
 
@@ -67,13 +66,10 @@
 
 	</security:authentication-manager>
 
-<!-- 	<beans:bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<beans:property name="url"
-			value="jdbc:mysql://localhost/remotefoster" />
-		<beans:property name="username" value="root" />
-		<beans:property name="password" value="mysql" />
-	</beans:bean> -->
+	<!-- <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" /> <beans:property 
+		name="url" value="jdbc:mysql://localhost/remotefoster" /> <beans:property 
+		name="username" value="root" /> <beans:property name="password" value="mysql" 
+		/> </beans:bean> -->
 </beans:beans>
 

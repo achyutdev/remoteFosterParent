@@ -34,7 +34,6 @@ public class FosterParent extends Person {
 		return email;
 	}
 
-	@Email
 	public void setEmail(String email) {
 		this.email = email;
 	}

@@ -9,15 +9,13 @@ import mum.edu.foster.domain.SupportNeed;
 @Service
 public interface SupportNeedService {
 
-//	public void delete(SupportNeed supportNeed);
-//
-//	public List<SupportNeed> getAll();
-//
-//	public SupportNeed getById(Long id);
-//
-//	public List<SupportNeed> findByCategory();
-//	
-//	public Long save(SupportNeed supportNeed);
+	public void delete(SupportNeed supportNeed);
+
+	public List<SupportNeed> getAll();
+
+	public SupportNeed getById(Long id);
+
+	public Long save(SupportNeed supportNeed);
 
 
 }

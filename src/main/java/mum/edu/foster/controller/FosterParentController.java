@@ -34,6 +34,7 @@ public class FosterParentController {
 	public String forsterParentRegistrationSave(@ModelAttribute("fosterParent") FosterParent fosterParent,
 			final RedirectAttributes redirectAttributes) {
 
+		System.out.println("Savien pager");
 		if (fosterParentDao.save(fosterParent) != null) {
 			// this is to take object to other page
 			// redirectAttributes.addFlashAttribute("fosterParent",

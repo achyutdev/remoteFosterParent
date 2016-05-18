@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -23,19 +22,26 @@
 			</div>
 
 		</c:if>
+		<c:if test="${param.reg == 1}">
+			<div class="alert alert-success">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Success!</strong>${message}
+			</div>
+
+		</c:if>
+
 		<div class="row">
 			<div class="col-md-7">
 				<div class="jumbotron">
 					<img class="img-responsive"
-						src="<c:url value='/resources/images/home.jpg'/>" alt="Child">
+						src="<c:url value='/resources/images/home.jpg'/>" alt="Home">
 				</div>
 			</div>
 			<div class="col-md-5">
 				<c:if test="${not empty param.login_error}">
 					<font color="red"> Your login attempt was not successful,
-						try again.<br />
-					<br /><c:out
-							value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />.
+						try again.<br /> <br />
+					<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />.
 					</font>
 				</c:if>
 				<h2>
@@ -50,7 +56,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="email">Username:</label>
 						<div class="col-sm-9">
-							<input class="form-control" id="username" name="j_username"
+							<input class="form-control" id="username" name="username"
 								placeholder="Enter username">
 						</div>
 					</div>
@@ -58,7 +64,7 @@
 						<label class="control-label col-sm-3" for="pwd">Password:</label>
 						<div class="col-sm-9">
 							<input type="password" class="form-control" id="pwd"
-								name="j_password" placeholder="Enter password">
+								name="password" placeholder="Enter password">
 						</div>
 					</div>
 
@@ -77,11 +83,13 @@
 				</form>
 
 				<div class="text-right">
-					<a href="${contextPath}/fosterParentReg"> Register Now</a>
+					<a href="${pageContext.request.contextPath}/fosterParentReg">
+						Register Now</a>
 				</div>
 
 			</div>
 		</div>
+			<%@ include file="../views/common/footer.jsp"%>
 	</div>
 
 

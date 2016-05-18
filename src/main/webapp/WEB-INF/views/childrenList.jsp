@@ -4,9 +4,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@page session="true"%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-<%@ page session="false"%>
+
 <html>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -75,24 +76,26 @@
 						</div>
 						<hr>
 
-
-
-					<%-- 	<sec:authorize access="isAuthenticated()"></sec:authorize> --%>
-						
-<%-- 						<sec:authorize ifAnyGranted roles="ROLE_ADMIN">
-						<a href="google.com" title="">
+						<sec:authorize access="isAnonymous()">
+							<a href="${pageContext.request.contextPath}/home/non_user" title="">
 								<button type="button help-me-btn" class="btn btn-success">Help
 									Me!</button>
 							</a>
-							<!-- <a href="google.com" title="">
-								<button type="button help-me-btn" class="btn btn-warning">Add
-									Support Need</button>
-							</a>
-							<a href="google.com" title="">
-								<button type="button help-me-btn" class="btn btn-warning">Add
-									Expenditure</button>
-							</a> -->
-						</sec:authorize ifAnyGranted> --%>
+						</sec:authorize>
+
+						<sec:authorize access="hasRole('ROLE_USER')">
+							
+								<a hraf="#"><button type="button help-me-btn" class="btn btn-success">Donate</button></a>
+							
+						</sec:authorize>
+
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<a hraf="#"><button type="button help-me-btn" class="btn btn-warning">Update</button></a>
+							<a hraf="#"><button type="button help-me-btn" class="btn btn-danger">Delete</button></a>
+							<a hraf="#"><button type="button help-me-btn" class="btn btn-success">Add Child Need</button></a>
+							<a hraf="#"><button type="button help-me-btn" class="btn btn-success">Add Expenditure</button></a>
+						</sec:authorize>
+
 					</div>
 				</div>
 

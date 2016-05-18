@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ page session="false"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ page session="true"%>
 <html>
 <head>
 <title>Remote Foster Parent</title>
@@ -32,7 +33,7 @@
 				</h2>
 				<hr />
 				<form:form class="form-horizontal" role="form" method="post"
-					action="${contextPath}/childrenRegSave" modelAttribute="children">
+					action="${pageContext.request.contextPath}/childrenRegSave" modelAttribute="children">
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="firstName">First
 							Name:</label>
