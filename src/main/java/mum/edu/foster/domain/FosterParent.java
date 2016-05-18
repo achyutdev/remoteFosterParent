@@ -8,13 +8,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 @Entity
 @DiscriminatorValue("FosterParent")
 public class FosterParent extends Person {
-
+	@Email
 	private String email;
+	@Size(min=10, max=12)
 	private String phone;
+	
 	private String occupation;
 	
 	

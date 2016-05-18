@@ -16,7 +16,11 @@ public class ChildrenServiceImpl implements ChildrenService {
 
 	@Autowired
 	private ChildrenDAO childrenDao;
-
+	/*
+	public ChildrenServiceImpl()
+	{}
+	*/
+	@Autowired
 	public ChildrenServiceImpl(ChildrenDAO childrenDao) {
 		this.childrenDao = childrenDao;
 	}

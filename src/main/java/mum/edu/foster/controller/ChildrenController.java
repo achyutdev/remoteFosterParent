@@ -28,6 +28,7 @@ public class ChildrenController {
  		model.addAttribute("childList",childList);
 		
 		return "childrenList";
+
 		
 	}
 	

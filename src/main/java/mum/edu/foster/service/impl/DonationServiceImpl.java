@@ -36,7 +36,7 @@ public class DonationServiceImpl implements DonationService {
 
 	@Override
 	public long save(Donation donation) {
-		// TODO Auto-generated method stub
+		
 		return donationDao.save(donation).getId();
 	}
 

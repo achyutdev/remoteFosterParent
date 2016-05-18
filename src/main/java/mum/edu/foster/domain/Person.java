@@ -11,6 +11,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
@@ -18,7 +19,9 @@ public abstract class Person {
 
 	@Id @GeneratedValue
 	private long id;
+	@NotNull
 	private String firstName;
+	@NotNull
 	private String lastName;
 	
 	@Embedded

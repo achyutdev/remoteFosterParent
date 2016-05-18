@@ -19,6 +19,16 @@
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
+    <groupId>commons-digester</groupId>
+    <artifactId>commons-digester</artifactId>
+    <version>2.1</version>
+</dependency>
+		<dependency>
+<groupId>commons-fileupload</groupId>
+<artifactId>commons-fileupload</artifactId>
+<version>1.2</version>
+</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework-version}</version>
@@ -138,6 +148,19 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
+<!-- http://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>javax.mail-api</artifactId>
+    <version>1.5.5</version>
+</dependency>
+
+<!-- http://mvnrepository.com/artifact/org.springframework/spring-support -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-support</artifactId>
+    <version>2.0.6</version>
+</dependency>
 
 		<!-- @Inject -->
 		<dependency>

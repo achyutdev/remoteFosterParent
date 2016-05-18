@@ -2,11 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd">
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
 
 	<bean id="dataSource"
@@ -14,7 +17,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/remoteFoster" />
 		<property name="username" value="root" />
-		<property name="password" value="mysql" />
+		<property name="password" value="8106" />
 	</bean>
 
 	<bean id="hibernateJpaVendorAdapter"
@@ -73,4 +76,53 @@
 
 	<context:component-scan base-package="mum.edu.foster.controller" />
 
+
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<context:component-scan base-package="mum.edu.foster.">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+
+
+
+	
+	
+	<aop:aspectj-autoproxy />
+	
+	
+	<bean id="SupportAdvice" class="mum.edu.foster.Aop.SupportAdvice">
+
+ 		<property name="fosterParentService" ref="FosterParentServiceImpl" /> 
+ 		<property name="mailer" ref="sitruMailer"></property> 
+
+	</bean>
+	<bean id="sitruMailer" class="mum.edu.foster.messaging.sitruMailer" />
+	<bean id="FosterParentServiceImpl" class="mum.edu.foster.service.impl.FosterParentServiceImpl" />
+
+	<!-- </beans> -->
+	<!-- SET default mail properties -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="25" />
+		<property name="username" value="achyut.cth@gmail.com" />
+		<property name="password" value="growingbud" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- You can have some pre-configured messagess also which are ready to 
+		send -->
+	<bean id="preConfiguredMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="to" value="citysul12@gmail.com"></property>
+		<property name="from" value="achyut.cth@gmail.com"></property>
+		<property name="subject" value="FATAL - Application crash. Save your job !!" />
+	</bean>
 </beans>

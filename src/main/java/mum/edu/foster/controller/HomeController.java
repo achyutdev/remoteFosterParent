@@ -4,13 +4,18 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import mum.edu.foster.dao.FosterParentDAO;
 import mum.edu.foster.domain.Children;
+import mum.edu.foster.domain.FosterParent;
 import mum.edu.foster.service.ChildrenService;
 
 @Controller
@@ -40,7 +45,55 @@ public class HomeController {
 	public String error404() {
 		return "404";
 	}
+/*
+	@Autowired
+	private FosterParentDAO fosterParentDao;
+	
 
+	@RequestMapping(value = "/fosterParent", method = RequestMethod.GET)
+	public String forsterParent(Model moder) {
+		System.out.println("test form fosterparent");
+		return "fosterParent";
+	}
+
+	@RequestMapping(value = "/fosterParentReg", method = RequestMethod.GET)
+	public String forsterParentRegistration(Model model) {
+		model.addAttribute("fosterParent", new FosterParent());
+		return "fosterParentReg";
+	}
+
+	//@RequestMapping(value = "/fosterParentRegSave", method = RequestMethod.POST)
+	@RequestMapping(value = "/fosterParentReg", method = RequestMethod.POST)
+	public String forsterParentRegistrationSave(@ModelAttribute("fosterParent") FosterParent fosterParent,
+			final RedirectAttributes redirectAttributes, BindingResult result) {
+		if(result.hasErrors())
+		{
+			//ModelAndView model1=new ModelAndView("fosterParentReg");
+			return "fosterParentReg";
+		}
+		
+		if (fosterParentDao.save(fosterParent) != null) {
+			// this is to take object to other page
+			// redirectAttributes.addFlashAttribute("fosterParent",
+			// fosterParent);
+			System.out.println("Not null");
+			redirectAttributes.addFlashAttribute("message", "Your are successfully register. Login in to the system");
+			//return "redirect:redirectToHome";
+			return "redirect:home";
+		}else{
+			redirectAttributes.addFlashAttribute("message", "Added successfully.");
+			System.out.println("Not null");
+			return "fosterParentReg";
+		}
+		
+	}
+
+	@RequestMapping(value = "redirectToHome", method = RequestMethod.GET)
+	public String backToHome(@ModelAttribute("fosterparent") FosterParent fosterparent) {
+		System.out.println("fosterparent:" + fosterparent.getFirstName());
+		return "home";
+	}
+	*/
 /*	// Spring Security see this :
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error,

@@ -1,15 +1,21 @@
 package mum.edu.foster.domain;
 
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Embeddable
 public class Address {
-	
+	@NotNull
 	private String street;
+	@Size(min=5, max=7)
 	private String zipCode;
+	@NotNull
 	private String city;
+	@NotNull
 	private String state;
+	@NotNull
 	private String country;
 
 	
