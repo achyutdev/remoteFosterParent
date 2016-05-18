@@ -26,28 +26,39 @@
 			<div class="col-md-8">
 				<h2>List of Children</h2>
 				<!-- Large modal -->
-				<button type="button" class="btn btn-primary" data-toggle="modal"
-					data-target=".bs-example-modal-lg">Add</button>
-				<form:form  modelAttribute="admin" method="get">
+				<div class="text-right">
+					<form method="get" action="childrenAdd">
+						<button type="submit" class="btn btn-primary" data-toggle="modal"
+							data-target=".bs-example-modal-lg">Add New</button>
+						<!-- 
+					<button type="submit">Add New</button> -->
+					</form>
+				</div>
+				<form:form modelAttribute="admin" method="get">
 					<table class="table table-striped table-hover">
 						<thead>
 							<tr>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Country</th>
-								<th>Date of birth</th>
+								<th>Full Name</th>
+								<!-- <th>Last Name</th> -->
+
+								<!-- <th>Date of birth</th> -->
 								<th>Educational Status</th>
+								<th>Country</th>
+								<th>State</th>
+								<th>City</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach items="${children}" var="kid">
 								<tr>
-									<td>This is the start</td>
-									<td><c:out value="${kid.firstName}"/></td>
-									<td>${kid.lastName} /></td>
-									<td>${kid.country} /></td>
-									<td>${kid.dob} /></td>
-									<td>${kid.educationalStatus} /></td>
+									<td>${kid.firstName}${kid.lastName}</td>
+									<%-- <td>${kid.lastName}</td> --%>
+									<td>${kid.educationalStatus}</td>
+									<td>${kid.address.country}</td>
+									<td>${kid.address.state}</td>
+									<td>${kid.address.city}</td>
+									<%-- <td>${kid.dob}</td> --%>
+
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -59,9 +70,11 @@
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							<th>First Name</th>
-							<th>Last Name</th>
+							<th>Full Name</th>
+							<!-- <th>Last Name</th> -->
 							<th>Country</th>
+							<th>State</th>
+							<th>City</th>
 							<th>Occupation</th>
 							<th>Email</th>
 							<th>Phone Number</th>
@@ -69,15 +82,17 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${fosterParent}" var="children">
+						<c:forEach items="${fosterParent}" var="foster">
 							<tr>
-								<td>This is the start</td>
-								<td><c:out value="${fosterParent.firstName}" /></td>
-								<td><c:out value="${fosterParent.lastName}" /></td>
-								<td><c:out value="${fosterParent.country}" /></td>
-								<td><c:out value="${fosterParent.email}" /></td>
-								<td><c:out value="${fosterParent.phone}" /></td>
-								<td><button type="button" class="btn btn-info btn-sm">new</button></td>
+								<td>${foster.firstName}${foster.lastName}</td>
+								<%-- <td>${foster.lastName}</td> --%>
+								<td>${foster.address.country}</td>
+								<td>${foster.address.state}</td>
+								<td>${foster.address.city}</td>
+								<td>${foster.occupation}</td>
+								<td>${foster.email}</td>
+								<td>${foster.phone}</td>
+								<!-- <td><button type="button" class="btn btn-info btn-sm">new</button></td> -->
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -88,20 +103,18 @@
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							<th>First Name</th>
-							<th>Last Name</th>
+							<th>Full Name</th>
+							<!-- <th>Last Name</th> -->
 							<th>Amount</th>
-							<th>Date</th>
+							<!-- <th>Date</th> -->
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${donation}" var="children">
+						<c:forEach items="${donation}" var="donate">
 							<tr>
-								<td>This is the start</td>
-								<td><c:out value="${donation.firstName}" /></td>
-								<td><c:out value="${donation.lastName}" /></td>
-								<td><c:out value="${donation.amount}" /></td>
-								<td><c:out value="${donation.date}" /></td>
+								<td>${donate.firstName} ${donate.lastName}</td>
+								<td>${donate.support.donation.amount}</td>
+								<%-- <td>${donate.support.donation.amount.donatedDate}</td> --%>
 							</tr>
 						</c:forEach>
 					</tbody>

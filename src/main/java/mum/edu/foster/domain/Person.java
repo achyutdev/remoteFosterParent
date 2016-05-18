@@ -11,6 +11,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Past;
 
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
@@ -25,6 +26,8 @@ public abstract class Person {
 	private Address address;
 	@Lob
 	private byte[] image;
+	
+	
 	@Temporal(TemporalType.DATE)
 	private Date dob;
 
@@ -71,7 +74,7 @@ public abstract class Person {
 	public Date getDob() {
 		return dob;
 	}
-
+	@Past
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}

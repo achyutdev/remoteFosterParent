@@ -2,25 +2,35 @@ package mum.edu.foster.controller;
 
 import java.util.Locale;
 
+import mum.edu.foster.dao.ChildrenDAO;
+import mum.edu.foster.dao.DonationDAO;
+import mum.edu.foster.dao.FosterParentDAO;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import mum.edu.foster.domain.Children;
-import mum.edu.foster.service.ChildrenService;
 
 @Controller
 public class HomeController {
 
-	private ChildrenService childrenService;
+	//private ChildrenDAO childrenService;
+	
+	@Autowired
+	private ChildrenDAO childrenService;
+
+	@Autowired
+	private FosterParentDAO fosterParent;
+
+	@Autowired
+	private DonationDAO donationService;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	@RequestMapping(value = { "	", "/home" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/admin" }, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -32,8 +42,14 @@ public class HomeController {
 		 * DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG,
 		 * locale); String formattedDate = dateFormat.format(date);
 		 */
+		//model.addAttribute("admin",childrenService.findAll());
+		
+		
+		model.addAttribute("children", childrenService.findAll());
+		model.addAttribute("fosterParent", fosterParent.findAll());
+		model.addAttribute("donation", donationService.findDetailAll());
 
-		return "home";
+		return "admin";
 	}
 
 	@RequestMapping("*")
