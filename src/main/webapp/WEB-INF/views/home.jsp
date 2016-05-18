@@ -1,6 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <%@ page session="false"%>
 <html>
 <head>
@@ -11,7 +13,7 @@
 </head>
 <body>
 	<%@ include file="../views/common/navmenu.jsp"%>
-
+	<h2>${err}</h2>
 	<div class="container">
 		<!-- Example row of columns -->
 		<c:if test="${message != null}">
@@ -19,6 +21,7 @@
 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 				<strong>Success!</strong>${message}
 			</div>
+
 		</c:if>
 		<div class="row">
 			<div class="col-md-7">
@@ -28,33 +31,34 @@
 				</div>
 			</div>
 			<div class="col-md-5">
-
+				<c:if test="${not empty param.login_error}">
+					<font color="red"> Your login attempt was not successful,
+						try again.<br />
+					<br /><c:out
+							value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />.
+					</font>
+				</c:if>
 				<h2>
 					<span class="glyphicon glyphicon-log-in"></span> Login
 				</h2>
 				<hr />
 
-				<c:if test="${not empty error}">
-					<div class="error">${error}</div>
-				</c:if>
-				<c:if test="${not empty msg}">
-					<div class="msg">${msg}</div>
-				</c:if>
+
 
 				<form class="form-horizontal" role="form" method="post"
-					action="${contextPath}/admin">
+					action="j_spring_security_check">
 					<div class="form-group">
-						<label class="control-label col-sm-3" for="email">Email:</label>
+						<label class="control-label col-sm-3" for="email">Username:</label>
 						<div class="col-sm-9">
-							<input type="email" class="form-control" id="email" name="email"
-								placeholder="Enter email">
+							<input class="form-control" id="username" name="j_username"
+								placeholder="Enter username">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="pwd">Password:</label>
 						<div class="col-sm-9">
 							<input type="password" class="form-control" id="pwd"
-								name="password" placeholder="Enter password">
+								name="j_password" placeholder="Enter password">
 						</div>
 					</div>
 
